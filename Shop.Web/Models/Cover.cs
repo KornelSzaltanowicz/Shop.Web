@@ -11,5 +11,5 @@ namespace Shop.Web.Models
         public CoverType Type { get; set; }
     }
 
-    public enum CoverType { }
+    public enum CoverType { BROSZURA, TWARDA, MIĘKKA, SZYTA, WKLEJANA }
 }
