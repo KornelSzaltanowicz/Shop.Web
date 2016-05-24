@@ -1,0 +1,42 @@
+﻿@model Shop.Web.ViewModel.CartViewModel
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            @Html.Label("Okładka", new { @class = "col-sm-2 control-label" })
+            <div class="col-sm-6">
+                @Html.DropDownList("Wydawnictwo", Model.Covers, "- Wybierz -", new { @class = "form-control col-sm-4" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Wydawnictwo", new { @class = "col-sm-2 control-label" })
+            <div class="col-sm-6">
+                @Html.DropDownList("Wydawnictwo", Model.Publishers, "- Wybierz -", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Wydanie", new { @class = "col-sm-2 control-label" })
+            <div class="col-sm-6">
+                @Html.DropDownList("Wydawnictwo", Model.PublicationDates, "- Wybierz -", new { @class = "form-control" }) 
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Nośnik", new { @class = "col-sm-2 control-label" })
+            <div class="col-sm-6">
+                @Html.DropDownList("Wydawnictwo", Model.DataCarriers, "- Wybierz -", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Ilość", new { @class = "col-sm-2 control-label" })
+            <div class="col-sm-6">
+                <input type="number" max="999" min="1" placeholder="Ilość" />
+            </div>
+        </div>
+
+    </div>
+}

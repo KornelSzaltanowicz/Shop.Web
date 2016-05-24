@@ -5,10 +5,10 @@ using System.Web;
 
 namespace Shop.Web.Models
 {
-    //Nośnik: Druk, eBook, PDF, EPUB, MOBI
+    
     public class BookType
     {
         public int BookTypeId { get; set; }
-        public string Name { get; set; }
+        public int Value { get; set; }
     }
 }

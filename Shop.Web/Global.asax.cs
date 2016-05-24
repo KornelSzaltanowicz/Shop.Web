@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Shop.Web.DAL;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,10 +14,13 @@ namespace Shop.Web
     {
         protected void Application_Start()
         {
+
+            //Database.SetInitializer(new BooksInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
         }
     }
 }
