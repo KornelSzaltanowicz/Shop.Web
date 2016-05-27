@@ -6,6 +6,7 @@ using System.Web;
 
 namespace Shop.Web.Models
 {
+    [Serializable]
     public class Book
     {
         public int BookId { get; set; }
@@ -19,7 +20,7 @@ namespace Shop.Web.Models
         public virtual Author Author { get; set; }
         [Display(Name = "Wydawnictwo")]
         public virtual Publisher Publisher { get; set; }
-        public BookType Type { get; set; }
+        public virtual BookType Type { get; set; }
         // 1 - super okazja 
         public int Opportunity { get; set; }
     }

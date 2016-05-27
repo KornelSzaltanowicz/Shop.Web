@@ -142,7 +142,7 @@ namespace Shop.Web.DAL
                 new Book() {BookId = 3, Title = "Kryształowy Anioł", Price = 38.49m, Type = audiobook, PublicDate = new DateTime(2009, 06, 17), Author  = kGrochola, Publisher = wydawnictwoLiterackie, Opportunity = 0 },
 
                 //Link Charlotte
-                new Book() {BookId = 4, Title = "Złudzenie", Price = 31.49m, Type = audiobook, PublicDate = new DateTime(2016, 04, 27), Author  = lCharlotte, Publisher = wydawnictwoSoniaDraga, Opportunity = 0 },
+                new Book() {BookId = 4, Title = "Złudzenie", Price = 31.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 27), Author  = lCharlotte, Publisher = wydawnictwoSoniaDraga, Opportunity = 0 },
                 new Book() {BookId = 5, Title = "Wielbiciel", Price = 31.49m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = lCharlotte, Publisher = wydawnictwoSoniaDraga, Opportunity = 0 },
                 new Book() {BookId = 6, Title = "Ciernista róża", Price = 32.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = lCharlotte, Publisher = wydawnictwoSoniaDraga, Opportunity = 1 },
 
@@ -162,12 +162,12 @@ namespace Shop.Web.DAL
                 new Book() {BookId = 12, Title = "Czarna loteria", Price = 32.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = gTess, Publisher = wydawnictwoAlbatros, Opportunity = 0 },
 
                 //Griffin Emily
-                new Book() {BookId = 10, Title = "Pierwsza przychodzi miłość", Price = 24.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 27), Author  = gEmily, Publisher = randomHouse, Opportunity = 1 },
+                new Book() {BookId = 10, Title = "Pierwsza przychodzi miłość", Price = 24.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 24), Author  = gEmily, Publisher = randomHouse, Opportunity = 1 },
                 new Book() {BookId = 11, Title = "Siedem lat później", Price = 19.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = gEmily, Publisher = randomHouse, Opportunity = 1 },
                 new Book() {BookId = 12, Title = "The one & only", Price = 52.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = gEmily, Publisher = randomHouse, Opportunity = 0 },
 
                 //Adam Mickiewicz
-                new Book() {BookId = 10, Title = "Pan tadeusz", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2015, 05, 27), Author  = aMickiewicz, Publisher = mediaRodzina, Opportunity = 0 },
+                new Book() {BookId = 10, Title = "Pan tadeusz", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2015, 05, 20), Author  = aMickiewicz, Publisher = mediaRodzina, Opportunity = 0 },
                 new Book() {BookId = 11, Title = "Konrad Wallenrod", Price = 19.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = aMickiewicz, Publisher = mtj, Opportunity = 1 },
                 new Book() {BookId = 12, Title = "Paryski Salon Fryderyka", Price = 52.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = aMickiewicz, Publisher = mtj, Opportunity = 0 },
                 new Book() {BookId = 13, Title = "Dziady", Price = 19.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = aMickiewicz, Publisher = greg, Opportunity = 0 },
@@ -179,7 +179,7 @@ namespace Shop.Web.DAL
                 new Book() {BookId = 17, Title = "To the vanishing point", Price = 52.99m, Type = audiobook, PublicDate = new DateTime(2016, 04, 27), Author  = fosterAlan, Publisher = uroboros, Opportunity = 1 },
 
                 //Brandon Sanderson
-                new Book() {BookId = 18, Title = "Żałobne opaski", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2015, 05, 27), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
+                new Book() {BookId = 18, Title = "Żałobne opaski", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 13), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
                 new Book() {BookId = 19, Title = "Archiwum burzliwego światła", Price = 69.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
                 new Book() {BookId = 20, Title = "Pożar", Price = 52.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
                 new Book() {BookId = 21, Title = "Cienie tożsamości", Price = 19.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
@@ -191,7 +191,7 @@ namespace Shop.Web.DAL
                 new Book() {BookId = 27, Title = "Legion", Price = 68.99m, Type = audiobook, PublicDate = new DateTime(2009, 04, 27), Author  = bSanderson, Publisher = mag, Opportunity = 1 },
 
                 //Evan Currie
-                new Book() {BookId = 28, Title = "Hayden War Tom II", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2015, 05, 27), Author  = cEvan, Publisher = drageus, Opportunity = 0 },
+                new Book() {BookId = 28, Title = "Hayden War Tom II", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 11), Author  = cEvan, Publisher = drageus, Opportunity = 0 },
                 new Book() {BookId = 29, Title = "Aus Der Tiefe", Price = 69.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = cEvan, Publisher = drageus, Opportunity = 0 },
                 new Book() {BookId = 30, Title = "Jenseits der Erde", Price = 52.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = cEvan, Publisher = drageus, Opportunity = 0 },
                 new Book() {BookId = 31, Title = "Star rogue Tom I", Price = 19.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = cEvan, Publisher = drageus, Opportunity = 0 },
@@ -203,12 +203,12 @@ namespace Shop.Web.DAL
                 new Book() {BookId = 37, Title = "Ostatni bastion", Price = 68.99m, Type = audiobook, PublicDate = new DateTime(2009, 04, 27), Author  = cEvan, Publisher = drageus, Opportunity =  0},
 
                 //Albert Riddle
-                new Book() {BookId = 28, Title = "Lot 305", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2015, 05, 27), Author  = agRiddle, Publisher = burda, Opportunity = 0 },
+                new Book() {BookId = 28, Title = "Lot 305", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2015, 05, 16), Author  = agRiddle, Publisher = burda, Opportunity = 0 },
                 new Book() {BookId = 29, Title = "Gen Atlantycki", Price = 69.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = agRiddle, Publisher = burda, Opportunity =  1},
                 new Book() {BookId = 30, Title = "The Portrait", Price = 52.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = agRiddle, Publisher = burda, Opportunity =1  },
                 new Book() {BookId = 31, Title = "The Tory's Daughter", Price = 19.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = agRiddle, Publisher = burda, Opportunity = 1 },
                 new Book() {BookId = 32, Title = "Departure", Price = 52.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = agRiddle, Publisher = burda, Opportunity = 0 },
-                new Book() {BookId = 33, Title = "Bart Ridgeley", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2015, 05, 27), Author  = agRiddle, Publisher = burda, Opportunity = 0 },
+                new Book() {BookId = 33, Title = "Bart Ridgeley", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 27), Author  = agRiddle, Publisher = burda, Opportunity = 0 },
                 new Book() {BookId = 34, Title = "Wirus", Price = 89.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = agRiddle, Publisher = burda , Opportunity = 0},
                 new Book() {BookId = 35, Title = "Romance of The Capital", Price = 37.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = agRiddle, Publisher = burda, Opportunity = 0 },
                 new Book() {BookId = 36, Title = "Horyzont Zdarzeń", Price = 26.99m, Type = eBook, PublicDate = new DateTime(2016, 01, 01), Author  = agRiddle, Publisher = burda, Opportunity = 0 },
