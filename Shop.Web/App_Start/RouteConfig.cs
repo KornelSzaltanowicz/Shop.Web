@@ -12,7 +12,9 @@ namespace Shop.Web
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            
+
+            //exclude template folder from routing
+            routes.IgnoreRoute("Scripts/app/templates/{*pathInfo}");
 
             //routes.MapRoute(
             //    name: "BookType",

@@ -17,7 +17,9 @@ namespace Shop.Web
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                     "~/Scripts/angular.js",
                     "~/Scripts/angular-route.js",
-                    "~/Scripts/i18n/angular-locale_pl.js"
+                    "~/Scripts/i18n/angular-locale_pl.js",
+                    "~/Scripts/angular-resource.js",
+                    "~/Scripts/app/app.js"
                 ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

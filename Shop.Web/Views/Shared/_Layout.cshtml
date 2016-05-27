@@ -30,9 +30,9 @@
 
                                 <!-- Collect the nav links, forms, and other content for toggling -->
                                 <div class="collapse navbar-collapse">
-                                    <form class="navbar-form navbar-left" role="search">
+                                    <form class="navbar-form navbar-left" role="search" ng-controller="SearchController" ng-submit="GoSearch(searchQuery)">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Wyszukiwarka">
+                                            <input type="text" class="form-control" placeholder="Wyszukiwarka" ng-model="searchQuery" >
                                         </div>
                                         <button type="submit" class="btn btn-default">Szukaj</button>
                                     </form>
@@ -43,9 +43,41 @@
                         </nav>
                     </div>
                     <div class="panel-body">
-                        @Html.Partial("_NavigationPartial")
+                        <div>
+                            <ul class="nav nav-tabs nav-justified" role="tablist">
+                                <li role="presentation" class="active">
+
+                                    @*@Html.ActionLink("Wszystkie", "All", "Book")*@
+                                    @*@Ajax.ActionLink("Wszystkie", "Books", "Book", new AjaxOptions { UpdateTargetId = "tbody", LoadingElementId = "loading", InsertionMode = InsertionMode.Replace })*@
+                                </li>
+                                <li role="presentation">
+                                    @Html.ActionLink("Audiobooki", "Type", "Book", new { bookType = 1 }, null)
+                                    @*@Ajax.ActionLink("Audiobooki", "Type", "Book", new { bookType = 1 }, new AjaxOptions { UpdateTargetId = "tbody", LoadingElementId = "loading", InsertionMode = InsertionMode.Replace })*@
+                                </li>
+                                <li role="presentation">
+                                    @Html.ActionLink("E-booki", "Type", "Book", new { bookType = 2 }, null)
+                                    @*@Ajax.ActionLink("E-booki", "Type", "Book", new { bookType = 2 }, new AjaxOptions { UpdateTargetId = "tbody", LoadingElementId = "loading", InsertionMode = InsertionMode.Replace })*@
+                                </li>
+                                <li role="presentation">
+                                    <a href="/book/newest">Nowości</a>
+                                    @*@Html.ActionLink("Nowości", "Newest", "Book")*@
+                                    @*@Ajax.ActionLink("Nowości", "Newest", "Data", new AjaxOptions { UpdateTargetId = "tbody", LoadingElementId = "loading", InsertionMode = InsertionMode.Replace })*@
+                                </li>
+                                <li role="presentation">
+                                    @Html.ActionLink("Zapowiedzi", "Previews", "Book")
+                                    @*@Ajax.ActionLink("Zapowiedzi", "Previews", "Data", new AjaxOptions { UpdateTargetId = "tbody", InsertionMode = InsertionMode.Replace })*@
+                                </li>
+                                <li role="presentation">
+                                    @Html.ActionLink("Super okazje", "Opportunity", "Book")
+                                    @*@Ajax.ActionLink("Super okazje", "Opportunity", "Book", new AjaxOptions { UpdateTargetId = "tbody", InsertionMode = InsertionMode.Replace })*@
+                                </li>
+                            </ul>
+                        </div>
+
                         @RenderBody()
+
                         @Html.Partial("_ModalPartial")
+
                     </div>
                 </div>
             </div>
@@ -54,8 +86,7 @@
 
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("/bundles/angular")
-    <script src="~/Scripts/app/app.js"></script>
+    @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("Scripts", required: false)
 </body>
