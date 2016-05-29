@@ -20,85 +20,19 @@ namespace Shop.Web.Controllers.Api
             return db.Books;
         }
 
-        // GET: api/BooksApi/5
+        // GET: api/BooksApi/1
         [ResponseType(typeof(Book))]
-        public async Task<IHttpActionResult> GetBook(int id)
+        public async Task<IHttpActionResult> GetBookByType(int bookType)
         {
-            Book book = await db.Books.FindAsync(id);
-            if (book == null)
+            var books = await db.Books.Select(b => b).Where(b => b.Type.Value == bookType).ToListAsync();
+            if (books == null)
             {
                 return NotFound();
             }
 
-            return Ok(book);
+            return Ok(books);
         }
-
-        // PUT: api/BooksApi/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutBook(int id, Book book)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != book.BookId)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(book).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BookExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/BooksApi
-        [ResponseType(typeof(Book))]
-        public async Task<IHttpActionResult> PostBook(Book book)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.Books.Add(book);
-            await db.SaveChangesAsync();
-
-            return CreatedAtRoute("DefaultApi", new { id = book.BookId }, book);
-        }
-
-        // DELETE: api/BooksApi/5
-        [ResponseType(typeof(Book))]
-        public async Task<IHttpActionResult> DeleteBook(int id)
-        {
-            Book book = await db.Books.FindAsync(id);
-            if (book == null)
-            {
-                return NotFound();
-            }
-
-            db.Books.Remove(book);
-            await db.SaveChangesAsync();
-
-            return Ok(book);
-        }
-
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)

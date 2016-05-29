@@ -16,8 +16,8 @@ namespace Shop.Web.App_Start
             // Convention-based routing.
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{bookType}",
+                defaults: new { bookType = RouteParameter.Optional }
             );
         }
     }

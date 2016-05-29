@@ -7,8 +7,8 @@
         <div class="form-group">
             @Html.Label("Okładka", new {@class = "col-sm-2 control-label"})
             <div class="col-sm-6">
-                @Html.DropDownListFor(vm => vm.CoverId, Model.Covers, "- Wybierz -", new {@class = "form-control col-sm-4"})
-                @Html.ValidationMessageFor(m => m.CoverId)
+                @Html.DropDownList("Okładka", Model.Covers, "- Wybierz -", new {@class = "form-control col-sm-4"})
+                @Html.ValidationMessageFor(m => m.Covers)
             </div>
         </div>
 
