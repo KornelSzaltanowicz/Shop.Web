@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    var shopApp = angular.module('shopApp', ['ngRoute']);
+    var shopApp = angular.module('shopApp', ['ngRoute', 'shopAppServices', 'shopAppFilters', 'angular-loading-bar', 'ngAnimate']);
 
     var selectedBooks = {};
 
@@ -8,21 +8,25 @@
 
         $routeProvider
             .when('/', {
-                templateUrl: '../Scripts/app/templates/newest.html',
-                controller: 'NewestController'
+                templateUrl: '../Scripts/app/templates/index.html',
+                controller: 'AllBooksController'
             })
             .when('/book/newest', {
                 templateUrl: '../Scripts/app/templates/newest.html',
-                controller: 'NewestController'
+                controller: 'NewestBooksController'
             })
             .when('/book/previews', {
-                templateUrl: '../Scripts/app/templates/newest.html',
-                controller: 'NewestController'
+                templateUrl: '../Scripts/app/templates/previews.html',
+                controller: 'PreviewsBooksController'
             })
              .when('/book/opportunity', {
-                 templateUrl: '../Scripts/app/templates/newest.html',
-                 controller: 'NewestController'
+                 templateUrl: '../Scripts/app/templates/opportunity.html',
+                 controller: 'OpportunitiesBooksController'
              })
+            .when('/book/type/:bookType', {
+                templateUrl: '../Scripts/app/templates/booktype.html',
+                controller: 'BookByTypeController'
+            })
             .otherwise({
                 redirectTo: '/'
             });
@@ -31,90 +35,59 @@
 
     }]);
 
+    shopApp.controller('NewestBooksController', ['$scope', 'bookService', function ($scope, bookService) {
 
-    shopApp.controller('NewestController', ['$scope', 'newestService', function ($scope, newestService) {
-
-        $scope.Books = null;
-        newestService.GetBooks().then(function (d) {
-            $scope.Books = d.data; //success
-            selectedBooks = d.data;
-        }, function () {
-            alert('Failed!');
+        $scope.Books = [];
+        bookService.getNewestBooks(function (books) {
+            $scope.Books = books;
         });
     }]);
 
+    shopApp.controller('AllBooksController', ['$scope', 'bookService', function ($scope, bookService) {
 
-    shopApp.factory('newestService', ['$http', function ($http) {
-        var op = {};
-        op.GetBooks = function () {
-            return $http.get('/Data/GetNewestBooks');
-        }
-        return op;
+        $scope.Books = [];
+        bookService.getAllBooks(function (books) {
+            $scope.Books = books;
+        });
     }]);
 
+    shopApp.controller('PreviewsBooksController', ['$scope', 'bookService', function ($scope, bookService) {
 
+        $scope.Books = [];
+        bookService.getPreviewsBooks(function (books) {
+            $scope.Books = books;
+        });
+    }]);
 
-    shopApp.filter("jsDate", function () {
-        return function (x) {
-            return new Date(parseInt(x.substr(6)));
-        };
-    });
+    shopApp.controller('OpportunitiesBooksController', ['$scope', 'bookService', function ($scope, bookService) {
 
-    shopApp.controller('SearchController', ['$scope', '$log', function ($scope, $log) {
+        $scope.Books = [];
+        bookService.getOpportunitiesBooks(function (books) {
+            $scope.Books = books;
+        });
+    }]);
 
-        var searchResult = [];
+    shopApp.controller('BookByTypeController', ['$scope', '$routeParams', 'bookService', function ($scope, $routeParams, bookService) {
+
+        $scope.Books = [];
+        $scope.booksType = $routeParams.bookType;
+        bookService.getBookByType($scope.booksType, function (data) {
+            $scope.Books = data;
+        });
+    }]);
+
+    shopApp.controller('MainController', ['$scope', function ($scope) {
+
         $scope.searchQuery = '';
-        $scope.searchBtnClick = false;
+        $scope.itemsAmount = 0;
 
-        $scope.GoSearch = function (data) {
-            $scope.searchQuery = data;
+        $scope.setItemsAmount = function (data) {
+            $scope.itemsAmount = data;
         };
 
-
-        $scope.search = function () {
-            if (selectedBooks != null) {
-                makeResultArray($scope.searchTxt);
-                if (searchResult.length < 1) {
-                    alert('W bazie danych nie odnaleziono produktów spełniających podane kryteria szukania');
-                }
-                else {
-                    $log.info(searchResult);
-                };
-            };
+        $scope.resetItemsAmount = function() {
+            $scope.itemsAmount = 0;
         };
-
-        var makeResultArray = function (searchTxt) {
-            angular.forEach(selectedBooks, function (value, key) {
-                if (value.Title.toLowerCase().indexOf(searchTxt.toLowerCase()) > -1 || value.Author.FirstName.toLowerCase().indexOf(searchTxt.toLowerCase()) > -1 || value.Author.LastName.toLowerCase().indexOf(searchTxt.toLowerCase()) > -1) {
-                    searchResult.push(value);
-                }
-            });
-        }
-
     }]);
-
-    shopApp.filter('titleAuthorFilter', function () {
-        
-        return function (books, searchQuery) {
-            console.log(searchQuery);
-            if (!searchQuery) {
-                return books;
-            }
-
-            return books.filter(function (element) {
-                
-                return (element.Title.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1);
-                
-                
-                //if (book.Title.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1 || book.Author.FirstName.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1 || book.Author.LastName.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1) {
-                //    console.log("cokolwiek");
-                //    return book;
-                //} else {
-                //    alert('W bazie danych nie odnaleziono produktów spełniających podane kryteria szukania');
-                //}
-            });
-        };
-
-    });
 
 })();

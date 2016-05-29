@@ -175,6 +175,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\BookManager.cs" />
+    <Compile Include="Infrastructure\IBookChecker.cs" />
     <Compile Include="Migrations\201605211127165_FirstModelMigration.cs" />
     <Compile Include="Migrations\201605211127165_FirstModelMigration.Designer.cs">
       <DependentUpon>201605211127165_FirstModelMigration.cs</DependentUpon>
@@ -199,6 +201,14 @@
     <Compile Include="Migrations\201605241700156_ContextChange.Designer.cs">
       <DependentUpon>201605241700156_ContextChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605281128215_last.cs" />
+    <Compile Include="Migrations\201605281128215_last.Designer.cs">
+      <DependentUpon>201605281128215_last.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605291105160_changesEverywere.cs" />
+    <Compile Include="Migrations\201605291105160_changesEverywere.Designer.cs">
+      <DependentUpon>201605291105160_changesEverywere.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
@@ -211,11 +221,11 @@
     <Compile Include="ViewModel\CartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="angularviews\previews.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\loading-bar.css" />
     <Content Include="Content\fonts\font-awesome-4.6.3\css\font-awesome.css" />
     <Content Include="Content\fonts\font-awesome-4.6.3\css\font-awesome.min.css" />
     <Content Include="Content\fonts\font-awesome-4.6.3\fonts\fontawesome-webfont.svg" />
@@ -291,7 +301,13 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\filters.js" />
+    <Content Include="Scripts\app\services.js" />
+    <Content Include="Scripts\app\templates\booktype.html" />
+    <Content Include="Scripts\app\templates\index.html" />
     <Content Include="Scripts\app\templates\newest.html" />
+    <Content Include="Scripts\app\templates\opportunity.html" />
+    <Content Include="Scripts\app\templates\previews.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -315,6 +331,12 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Scripts\loading-bar.js" />
+    <Content Include="Scripts\tmp\Index.html" />
+    <Content Include="Scripts\tmp\Newest.html" />
+    <Content Include="Scripts\tmp\Opportunity.html" />
+    <Content Include="Scripts\tmp\Previews.html" />
+    <Content Include="Scripts\tmp\Type.html" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1088,7 +1110,6 @@
     <Content Include="Views\Shared\_TablePartial.cshtml" />
     <Content Include="Views\Cart\_CartData.cshtml" />
     <Content Include="Views\Shared\_NavigationPartial.cshtml" />
-    <Content Include="Views\Book\All.cshtml" />
     <Content Include="Views\Shared\_ModalPartial.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Book\Opportunity.cshtml" />
@@ -1124,6 +1145,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605241700156_ContextChange.resx">
       <DependentUpon>201605241700156_ContextChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605281128215_last.resx">
+      <DependentUpon>201605281128215_last.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605291105160_changesEverywere.resx">
+      <DependentUpon>201605291105160_changesEverywere.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

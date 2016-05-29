@@ -1,88 +1,63 @@
 ﻿using Shop.Web.DAL;
-using Shop.Web.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+using Shop.Web.Infrastructure;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Helpers;
+using System.Threading;
 using System.Web.Mvc;
 
 namespace Shop.Web.Controllers
 {
     public class DataController : Controller
     {
-        private ShopContext db = new ShopContext();
-        private int currentDayOfYear = DateTime.Today.DayOfYear;
-        private int currentYear = DateTime.Today.Year;
-        private List<Book> previewsBookList = new List<Book>();
-        private List<Book> newestBookList = new List<Book>();
+        private readonly ShopContext _db;
+        private readonly BookManager _bookManager;
 
-        // GET: Data/GetAllBooks
+        public DataController(ShopContext context, BookManager bookManager)
+        {
+            this._db = context;
+            this._bookManager = bookManager;
+        }
+        
         public JsonResult GetAllBooks()
         {
-            return Json(db.Books.ToList(), JsonRequestBehavior.AllowGet);
+            //opóźniam wątek dla widoczności przeładowania
+            Thread.Sleep(800);
+            return Json(_db.Books.ToList(), JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetBookByType(int bookType)
         {
-            var booksByType =  db.Books.Where(b => b.Type.Value == bookType).ToList();
-
+            
+            var booksByType = _db.Books.Where(b => b.Type.Value == bookType).ToList();
+            Thread.Sleep(450);
             return Json(booksByType, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetNewestBooks()
         {
-
-            var books = db.Books.ToList();
-            books.ForEach(b => AddToNewest(b));
             
-            return Json(newestBookList, JsonRequestBehavior.AllowGet);
+            var books = _db.Books.ToList();
+            books.ForEach(b => _bookManager.AddToNewest(b));
+            Thread.Sleep(450);
+            return Json(_bookManager.newestBookList, JsonRequestBehavior.AllowGet);
 
-        }
-
-        private bool IsNewest(Book book)
-        {
-            return (book.PublicDate.DayOfYear <= currentDayOfYear && book.PublicDate.DayOfYear >= currentDayOfYear - 14 && book.PublicDate.Year == currentYear) || false;
-        }
-
-        private void AddToNewest(Book book)
-        {
-            if (IsNewest(book))
-            {
-                newestBookList.Add(book);
-            }
         }
 
         public JsonResult GetPreviewsBooks()
         {
-            var books = db.Books.ToList();
 
-            books.ForEach(b => AddToPreview(b));
-            
-            return Json(previewsBookList, JsonRequestBehavior.AllowGet);
+            var books = _db.Books.ToList();
 
-        }
+            books.ForEach(b => _bookManager.AddToPreview(b));
+            Thread.Sleep(450);
+            return Json(_bookManager.previewsBookList, JsonRequestBehavior.AllowGet);
 
-        private bool IsPreview(Book book)
-        {
-            return (book.PublicDate.DayOfYear >= currentDayOfYear && book.PublicDate.DayOfYear <= currentDayOfYear + 14 && book.PublicDate.Year == currentYear) || false;
-        }
-
-        private void AddToPreview(Book book)
-        {
-            if (IsPreview(book))
-            {
-                previewsBookList.Add(book);
-            }
         }
 
         public JsonResult GetOpportunityBooks()
         {
 
-            var opportunityBooks = db.Books.Where(b => b.Opportunity > 0).ToList();
-            
+            var opportunityBooks = _db.Books.Where(b => b.Opportunity > 0).ToList();
+            Thread.Sleep(450);
             return Json(opportunityBooks, JsonRequestBehavior.AllowGet);
 
         }

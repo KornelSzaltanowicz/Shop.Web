@@ -1,30 +1,22 @@
 ﻿<div>
     <ul class="nav nav-tabs nav-justified" role="tablist">
-        <li role="presentation" class="active">
-            
-            @*@Html.ActionLink("Wszystkie", "All", "Book")*@
-            @*@Ajax.ActionLink("Wszystkie", "Books", "Book", new AjaxOptions { UpdateTargetId = "tbody", LoadingElementId = "loading", InsertionMode = InsertionMode.Replace })*@
+        <li role="presentation">
+            <a ng-href="/">Wszystkie</a>
         </li>
         <li role="presentation">
-            @Html.ActionLink("Audiobooki", "Type", "Book", new { bookType = 1 },null)
-            @*@Ajax.ActionLink("Audiobooki", "Type", "Book", new { bookType = 1 }, new AjaxOptions { UpdateTargetId = "tbody", LoadingElementId = "loading", InsertionMode = InsertionMode.Replace })*@
+            <a ng-href="/book/type/1" ng-click="setBookType(1)">Audiobooki</a>
         </li>
         <li role="presentation">
-            @Html.ActionLink("E-booki", "Type", "Book", new { bookType = 2 },null)
-            @*@Ajax.ActionLink("E-booki", "Type", "Book", new { bookType = 2 }, new AjaxOptions { UpdateTargetId = "tbody", LoadingElementId = "loading", InsertionMode = InsertionMode.Replace })*@
+            <a ng-href="/book/type/2" ng-click="setBookType(2)">E-booki</a>
         </li>
         <li role="presentation">
-            <a href="/book/newest">Nowości</a>
-            @*@Html.ActionLink("Nowości", "Newest", "Book")*@
-            @*@Ajax.ActionLink("Nowości", "Newest", "Data", new AjaxOptions { UpdateTargetId = "tbody", LoadingElementId = "loading", InsertionMode = InsertionMode.Replace })*@
+            <a ng-href="/book/newest">Nowości</a>
         </li>
         <li role="presentation">
-            @Html.ActionLink("Zapowiedzi", "Previews", "Book")
-            @*@Ajax.ActionLink("Zapowiedzi", "Previews", "Data", new AjaxOptions { UpdateTargetId = "tbody", InsertionMode = InsertionMode.Replace })*@
+            <a ng-href="/book/previews">Zapowiedzi</a>
         </li>
         <li role="presentation">
-            @Html.ActionLink("Super okazje", "Opportunity", "Book")
-            @*@Ajax.ActionLink("Super okazje", "Opportunity", "Book", new AjaxOptions { UpdateTargetId = "tbody", InsertionMode = InsertionMode.Replace })*@
+            <a ng-href="/book/opportunity">Super Okazje</a>
         </li>
     </ul>
 </div>

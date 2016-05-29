@@ -1,4 +1,5 @@
-﻿    <div ng-view ng-controller="NewestController">
+﻿<div ng-view>
+    <div ng-controller="AllBooksController">
         <table class="table table-bordered" id="tbody">
             <thead>
                 <tr>
@@ -13,7 +14,7 @@
             <tbody>
                 <tr ng-repeat="b in Books">
                     <td>{{ b.Title }}</td>
-                    <td>{{ b.PublicDate | date: 'yyyy-MM-dd' }}</td>
+                    <td>{{ b.PublicDate | jsDate | date:"yyyy-MM-dd" }}</td>
                     <td>{{ b.Price | currency}}</td>
                     <td>{{ b.Author.FirstName }} {{ b.Author.LastName }}</td>
                     <td>{{ b.Publisher.Name }}</td>
@@ -22,3 +23,4 @@
             </tbody>
         </table>
     </div>
+</div>

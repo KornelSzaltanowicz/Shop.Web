@@ -1,30 +1,13 @@
-﻿using Shop.Web.DAL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Web;
-using System.Web.Mvc;
-using PagedList;
-using Shop.Web.Models;
+﻿using System.Web.Mvc;
 
 namespace Shop.Web.Controllers
 {
     public class BookController : Controller
     {
-
-
-
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult All()
-        {
-            return View();
-        }
-
 
         public ViewResult Type(int bookType)
         {

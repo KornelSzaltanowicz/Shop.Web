@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Migrations;
-using System.Linq;
-using System.Web;
 
 namespace Shop.Web.DAL
 {
@@ -137,8 +134,8 @@ namespace Shop.Web.DAL
             var books = new List<Book>
             {
                 //Katarzyna Grochola
-                new Book() {BookId = 1, Title = "Przeznaczeni", Price = 35.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 18), Author  = kGrochola, Publisher = wydawnictwoLiterackie, Opportunity = 1 },
-                new Book() {BookId = 2, Title = "Trzepot skrzydeł", Price = 26.99m, Type = eBook, PublicDate = new DateTime(2008, 06, 18), Author  = kGrochola, Publisher = wydawnictwoLiterackie, Opportunity = 0 },
+                new Book() {BookId = 1, Title = "Przeznaczeni", Price = 35.49m, Type = audiobook, PublicDate = new DateTime(2016, 06, 12), Author  = kGrochola, Publisher = wydawnictwoLiterackie, Opportunity = 1 },
+                new Book() {BookId = 2, Title = "Trzepot skrzydeł", Price = 26.99m, Type = eBook, PublicDate = new DateTime(2016, 06, 10), Author  = kGrochola, Publisher = wydawnictwoLiterackie, Opportunity = 0 },
                 new Book() {BookId = 3, Title = "Kryształowy Anioł", Price = 38.49m, Type = audiobook, PublicDate = new DateTime(2009, 06, 17), Author  = kGrochola, Publisher = wydawnictwoLiterackie, Opportunity = 0 },
 
                 //Link Charlotte
@@ -149,7 +146,7 @@ namespace Shop.Web.DAL
                 //Robert Szmidt
                 new Book() {BookId = 7, Title = "Uniwersum Metro 2033. Wieża", Price = 41.49m, Type = audiobook, PublicDate = new DateTime(2016, 09, 27), Author  = rSzmidt, Publisher = wydawnictwoInsignis, Opportunity = 1 },
                 new Book() {BookId = 8, Title = "Szczury Wrocławia", Price = 39.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = rSzmidt, Publisher = wydawnictwoInsignis, Opportunity = 1 },
-                new Book() {BookId = 9, Title = "Ostatni zjazd przed Litwą", Price = 32.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = rSzmidt, Publisher = wydawnictwoInsignis, Opportunity = 0 },
+                new Book() {BookId = 9, Title = "Ostatni zjazd przed Litwą", Price = 32.99m, Type = audiobook, PublicDate = new DateTime(2016, 05, 25), Author  = rSzmidt, Publisher = wydawnictwoInsignis, Opportunity = 0 },
 
                 //Robert Szmidt
                 new Book() {BookId = 7, Title = "Igrając z ogniem", Price = 24.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 27), Author  = gTess, Publisher = wydawnictwoAlbatros, Opportunity = 0 },
@@ -157,37 +154,37 @@ namespace Shop.Web.DAL
                 new Book() {BookId = 9, Title = "Czarna loteria", Price = 32.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = gTess, Publisher = wydawnictwoAlbatros, Opportunity = 1 },
 
                 //Tess
-                new Book() {BookId = 10, Title = "Igrając z ogniem", Price = 24.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 27), Author  = gTess, Publisher = wydawnictwoAlbatros, Opportunity = 1 },
+                new Book() {BookId = 10, Title = "Igrając z ogniem", Price = 24.49m, Type = audiobook, PublicDate = new DateTime(2016, 06, 04), Author  = gTess, Publisher = wydawnictwoAlbatros, Opportunity = 1 },
                 new Book() {BookId = 11, Title = "Śladem zbrodni", Price = 39.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = gTess, Publisher = wydawnictwoAlbatros, Opportunity = 0 },
                 new Book() {BookId = 12, Title = "Czarna loteria", Price = 32.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = gTess, Publisher = wydawnictwoAlbatros, Opportunity = 0 },
 
                 //Griffin Emily
-                new Book() {BookId = 10, Title = "Pierwsza przychodzi miłość", Price = 24.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 24), Author  = gEmily, Publisher = randomHouse, Opportunity = 1 },
+                new Book() {BookId = 10, Title = "Pierwsza przychodzi miłość", Price = 24.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 19), Author  = gEmily, Publisher = randomHouse, Opportunity = 1 },
                 new Book() {BookId = 11, Title = "Siedem lat później", Price = 19.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = gEmily, Publisher = randomHouse, Opportunity = 1 },
                 new Book() {BookId = 12, Title = "The one & only", Price = 52.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = gEmily, Publisher = randomHouse, Opportunity = 0 },
 
                 //Adam Mickiewicz
-                new Book() {BookId = 10, Title = "Pan tadeusz", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2015, 05, 20), Author  = aMickiewicz, Publisher = mediaRodzina, Opportunity = 0 },
+                new Book() {BookId = 10, Title = "Pan tadeusz", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2016, 06, 20), Author  = aMickiewicz, Publisher = mediaRodzina, Opportunity = 0 },
                 new Book() {BookId = 11, Title = "Konrad Wallenrod", Price = 19.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = aMickiewicz, Publisher = mtj, Opportunity = 1 },
                 new Book() {BookId = 12, Title = "Paryski Salon Fryderyka", Price = 52.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = aMickiewicz, Publisher = mtj, Opportunity = 0 },
                 new Book() {BookId = 13, Title = "Dziady", Price = 19.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = aMickiewicz, Publisher = greg, Opportunity = 0 },
                 new Book() {BookId = 14, Title = "Powrót Taty", Price = 52.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = aMickiewicz, Publisher = mtj, Opportunity = 0 },
 
                 //Alan Foster
-                new Book() {BookId = 15, Title = "Star Wars Przebudzenie Mocy", Price = 29.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 27), Author  = fosterAlan, Publisher = uroboros, Opportunity = 0 },
+                new Book() {BookId = 15, Title = "Star Wars Przebudzenie Mocy", Price = 29.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 30), Author  = fosterAlan, Publisher = uroboros, Opportunity = 0 },
                 new Book() {BookId = 16, Title = "Maori", Price = 19.99m, Type = eBook, PublicDate = new DateTime(2017, 01, 01), Author  = fosterAlan, Publisher = uroboros, Opportunity = 0 },
                 new Book() {BookId = 17, Title = "To the vanishing point", Price = 52.99m, Type = audiobook, PublicDate = new DateTime(2016, 04, 27), Author  = fosterAlan, Publisher = uroboros, Opportunity = 1 },
 
                 //Brandon Sanderson
-                new Book() {BookId = 18, Title = "Żałobne opaski", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 13), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
+                new Book() {BookId = 18, Title = "Żałobne opaski", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2016, 05, 23), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
                 new Book() {BookId = 19, Title = "Archiwum burzliwego światła", Price = 69.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
                 new Book() {BookId = 20, Title = "Pożar", Price = 52.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
                 new Book() {BookId = 21, Title = "Cienie tożsamości", Price = 19.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
                 new Book() {BookId = 22, Title = "Słowa światłości", Price = 52.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
-                new Book() {BookId = 23, Title = "Elantris", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2015, 05, 27), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
+                new Book() {BookId = 23, Title = "Elantris", Price = 124.49m, Type = audiobook, PublicDate = new DateTime(2016, 06, 22), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
                 new Book() {BookId = 24, Title = "Warbreaker", Price = 669.99m, Type = eBook, PublicDate = new DateTime(2013, 01, 01), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
                 new Book() {BookId = 25, Title = "Words of radiance", Price = 37.99m, Type = audiobook, PublicDate = new DateTime(2014, 04, 27), Author  = bSanderson, Publisher = mag, Opportunity = 0 },
-                new Book() {BookId = 26, Title = "Mitosis", Price = 26.99m, Type = eBook, PublicDate = new DateTime(2016, 01, 01), Author  = bSanderson, Publisher = mag, Opportunity = 1 },
+                new Book() {BookId = 26, Title = "Mitosis", Price = 26.99m, Type = eBook, PublicDate = new DateTime(2016, 06, 18), Author  = bSanderson, Publisher = mag, Opportunity = 1 },
                 new Book() {BookId = 27, Title = "Legion", Price = 68.99m, Type = audiobook, PublicDate = new DateTime(2009, 04, 27), Author  = bSanderson, Publisher = mag, Opportunity = 1 },
 
                 //Evan Currie

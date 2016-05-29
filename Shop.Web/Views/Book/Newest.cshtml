@@ -1,26 +1,25 @@
-﻿<div ng-view>
-    <div ng-controller="NewestController">
-        <table class="table table-bordered" id="tbody">
-            <thead>
-                <tr>
-                    <th>Nazwa</th>
-                    <th>Data Wydania</th>
-                    <th>Cena</th>
-                    <th>Autor</th>
-                    <th>Wydawnictwo</th>
-                    <th><i class="fa fa-shopping-basket" aria-hidden="true"></i></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="b in Books">
-                    <td>{{ b.Title }}</td>
-                    <td>{{ b.PublicDate | date: 'yyyy-MM-dd' }}</td>
-                    <td>{{ b.Price | currency}}</td>
-                    <td>{{ b.Author.FirstName }} {{ b.Author.LastName }}</td>
-                    <td>{{ b.Publisher.Name }}</td>
-                    <td><a data-toggle="modal" data-target="#cartModal" style="cursor:pointer;text-decoration:none">Do Koszyka</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+﻿<div ng-controller="NewestBooksController">
+    <table class="table table-bordered" id="tbody">
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th>Data Wydania</th>
+                <th>Cena</th>
+                <th>Autor</th>
+                <th>Wydawnictwo</th>
+                <th><i class="fa fa-shopping-basket" aria-hidden="true"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="b in Books">
+                <td>{{ b.Title }}</td>
+                <td>{{ b.PublicDate | jsDate | date:"yyyy-MM-dd" }}</td>
+                <td>{{ b.Price | currency}}</td>
+                <td>{{ b.Author.FirstName }} {{ b.Author.LastName }}</td>
+                <td>{{ b.Publisher.Name }}</td>
+                <td><a data-toggle="modal" data-target="#cartModal" style="cursor:pointer;text-decoration:none">Do Koszyka</a></td>
+            </tr>
+        </tbody>
+    </table>
+
 </div>

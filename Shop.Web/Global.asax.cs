@@ -1,14 +1,10 @@
-﻿using Shop.Web.App_Start;
-using Shop.Web.DAL;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
+using Shop.Web.App_Start;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Shop.Web.DAL;
 
 namespace Shop.Web
 {

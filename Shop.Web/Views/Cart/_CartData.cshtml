@@ -1,42 +1,44 @@
 ﻿@model Shop.Web.ViewModel.CartViewModel
 
-
 @using (Html.BeginForm())
 {
     <div class="form-horizontal">
-
+        @Html.ValidationSummary()
         <div class="form-group">
-            @Html.Label("Okładka", new { @class = "col-sm-2 control-label" })
+            @Html.Label("Okładka", new {@class = "col-sm-2 control-label"})
             <div class="col-sm-6">
-                @Html.DropDownList("Wydawnictwo", Model.Covers, "- Wybierz -", new { @class = "form-control col-sm-4" })
+                @Html.DropDownListFor(vm => vm.CoverId, Model.Covers, "- Wybierz -", new {@class = "form-control col-sm-4"})
+                @Html.ValidationMessageFor(m => m.CoverId)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label("Wydawnictwo", new { @class = "col-sm-2 control-label" })
+            @Html.Label("Wydawnictwo", new {@class = "col-sm-2 control-label"})
             <div class="col-sm-6">
-                @Html.DropDownList("Wydawnictwo", Model.Publishers, "- Wybierz -", new { @class = "form-control" })
+                @Html.DropDownList("Wydawnictwo", Model.Publishers, "- Wybierz -", new {@class = "form-control"})
+                @Html.ValidationMessageFor(vm => vm.Publishers)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label("Wydanie", new { @class = "col-sm-2 control-label" })
+            @Html.Label("Wydanie", new {@class = "col-sm-2 control-label"})
             <div class="col-sm-6">
-                @Html.DropDownList("Wydawnictwo", Model.PublicationDates, "- Wybierz -", new { @class = "form-control" }) 
+                @Html.DropDownList("Wydanie", Model.PublicationDates, "- Wybierz -", new {@class = "form-control"})
+                @Html.ValidationMessageFor(vm => vm.PublicationDates)
             </div>
         </div>
         <div class="form-group">
-            @Html.Label("Nośnik", new { @class = "col-sm-2 control-label" })
+            @Html.Label("Nośnik", new {@class = "col-sm-2 control-label"})
             <div class="col-sm-6">
-                @Html.DropDownList("Wydawnictwo", Model.DataCarriers, "- Wybierz -", new { @class = "form-control" })
+                @Html.DropDownList("Nośnik", Model.DataCarriers, "- Wybierz -", new {@class = "form-control"})
+                @Html.ValidationMessageFor(vm => vm.DataCarriers)
             </div>
         </div>
         <div class="form-group">
-            @Html.Label("Ilość", new { @class = "col-sm-2 control-label" })
+            @Html.Label("Ilość", new {@class = "col-sm-2 control-label"})
             <div class="col-sm-6">
-                <input type="number" max="999" min="1" placeholder="Ilość" />
+                <input type="number" max="999" min="1" placeholder="Ilość" ng-model="itemsAmount"/>
             </div>
         </div>
-
     </div>
 }
